@@ -220,15 +220,20 @@ namespace StarterAssets
 
         void AttackRaycast()
         {
-            if(Physics.Raycast(_mainCamera.transform.position, _mainCamera.transform.forward, out RaycastHit hit, attackDistance, attackLayer))
-            { 
+            if (Physics.Raycast(_mainCamera.transform.position,_mainCamera.transform.forward,out RaycastHit hit,attackDistance,attackLayer))
+            {
                 HitTarget(hit.point);
 
-                if(hit.transform.TryGetComponent<Actor>(out Actor T))
+                if (hit.transform.TryGetComponent<Pinata>(out Pinata T))
+                
+                {
+                 Vector3 dir = hit.transform.position - _mainCamera.transform.position;
 
-                { T.TakeDamage(attackDamage); }
-            } 
+                 T.TakeDamage(attackDamage, dir);
+                }
+            }
         }
+
 
         void HitTarget(Vector3 pos)
         {
@@ -357,8 +362,4 @@ namespace StarterAssets
         }
     }
 
-    public interface Actor 
-    {
-        void TakeDamage(int dmg);
-    }
 }

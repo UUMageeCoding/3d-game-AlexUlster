@@ -144,7 +144,7 @@ namespace StarterAssets
 
         private void Update()
         {
-            float targetFOV = Keyboard.current.leftShiftKey.isPressed ? sprintFOV : normalFOV;
+            float targetFOV = Keyboard.current.wKey.isPressed ? sprintFOV : normalFOV;
 
             cineCam.m_Lens.FieldOfView = Mathf.Lerp(cineCam.m_Lens.FieldOfView,targetFOV,fovChangeSpeed * Time.deltaTime);
 

@@ -15,13 +15,13 @@ MonoBehaviour:
   active: 1
   mode:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   quality:
     m_OverrideState: 1
     m_Value: 2
   intensity:
     m_OverrideState: 1
-    m_Value: 0.282
+    m_Value: 0.362
   clamp:
     m_OverrideState: 1
     m_Value: 0.0416

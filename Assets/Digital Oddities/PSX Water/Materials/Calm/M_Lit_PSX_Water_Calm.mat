@@ -43,21 +43,22 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AO: 0
     - _Caustic_Opacity: 1.5
     - _Caustic_Power: 1
     - _Color_Steps: 32
-    - _Depth_Sample_Offset: 0.06
+    - _Depth_Sample_Offset: 0.029
     - _Foam_Distance: 1
-    - _Foam_Opacity: 0.7
+    - _Foam_Opacity: 0
     - _Foam_Resolution_Factor: 1024
-    - _Foam_Scale: 1000
+    - _Foam_Scale: 1000.42
     - _Intersection_Power: 20
     - _Opacity: 0.5
     - _PS1_Resolution_Factor: 32
     - _Percision_Factor: 32
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Smoothness: -7.12
+    - _Smoothness: -177.7
     - _Vertex_Color_Fade: 1
     - _Vertex_Color_Strength: 1
     - _Water_Opacity: 0.6
@@ -69,10 +70,10 @@ Material:
     - _Foam_Color: {r: 0.2488875, g: 0.4073514, b: 0.4433962, a: 1}
     - _Foam_Speed: {r: 0.002, g: 0, b: 0, a: 0}
     - _Scroll_Speed: {r: 0.005, g: 0.005, b: 0, a: 0}
-    - _Specular_Color: {r: 0, g: 0, b: 0, a: 0}
+    - _Specular_Color: {r: 1, g: 1, b: 1, a: 1}
     - _Tiling: {r: 0.1, g: 0.1, b: 0, a: 0}
     - _Tint: {r: 0.16456035, g: 0.8113208, b: 0.63860357, a: 1}
-    - _Water_Tint: {r: 0.043137256, g: 0.30588236, b: 0.32941177, a: 1}
+    - _Water_Tint: {r: 0.08170167, g: 0.502933, b: 0.6415094, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &6385468266698424484

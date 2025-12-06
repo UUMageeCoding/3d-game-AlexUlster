@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
+using Unity.VisualScripting;
+using System;
 
 public class Pinata : MonoBehaviour
 {
@@ -17,13 +21,23 @@ public class Pinata : MonoBehaviour
 
     public GameObject particle;
 
+    public ScoreManager score;
+    
+
+
     void Awake()
     {
+        
+
         currentHealth = maxHealth;
     }
 
+  
+
     public void TakeDamage(int amount, Vector3 hitDirection) 
     {
+
+       score.addscore();
 
         currentHealth -= amount;
 
@@ -35,6 +49,7 @@ public class Pinata : MonoBehaviour
         if (currentHealth <= 0)
         {
             Invoke("Confetti", delay);
+            
             Invoke("Death", delay);
         }
 

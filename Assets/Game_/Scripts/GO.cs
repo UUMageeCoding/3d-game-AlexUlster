@@ -18,11 +18,12 @@ public class GO : MonoBehaviour
     {
         controller = player.GetComponent<UltimateFirstPersonController>();
 
-        controller.enabled = false;
+        controller.MoveSpeed = 0;
+        controller.SprintSpeed = 0;
         
-        three.gameObject.SetActive(true);
-        two.gameObject.SetActive(false);
-        one.gameObject.SetActive(false);
+        three.SetActive(true);
+        two.SetActive(false);
+        one.SetActive(false);
         go.SetActive(false);
     }
 
@@ -35,19 +36,20 @@ public class GO : MonoBehaviour
     {
         yield return new WaitForSeconds(.6f);
 
-        three.gameObject.SetActive(false);
-        two.gameObject.SetActive(true);
+        three.SetActive(false);
+        two.SetActive(true);
 
         yield return new WaitForSeconds(.8f);
 
-        two.gameObject.SetActive(false);
-        one.gameObject.SetActive(true);
+        two.SetActive(false);
+        one.SetActive(true);
 
         yield return new WaitForSeconds(.9f);
 
-        one.gameObject.SetActive(false);
-        go.gameObject.SetActive(true);
-        controller.enabled = true;
+        one.SetActive(false);
+        go.SetActive(true);
+        controller.MoveSpeed = 7;
+        controller.SprintSpeed = 7;
 
         yield return new WaitForSeconds(.9f);
 

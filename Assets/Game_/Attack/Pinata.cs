@@ -11,40 +11,55 @@ public class Pinata : MonoBehaviour
     int currentHealth;
     public int maxHealth;
 
-    public float delay;
-    public float smoldelay;
-
-    public Rigidbody pinata;       
-    public float knockbackforce = 8f;
+    public float delay;    
 
     public Transform particlepos;
 
     public GameObject particle;
 
     public ScoreManager score;
-    
 
+    public Transform player;
+
+    public Animator pinataAnim;
+
+    public int distanceNUMBER = 3;
+
+    public GameObject exclamation;
+    
+    public GameObject questionmark;
 
     void Awake()
     {
-        
-
         currentHealth = maxHealth;
+        exclamation.SetActive(false);
+        questionmark.SetActive(true);
     }
 
-  
+    void Update()
+    {
+        float distance = Vector3.Distance(player.transform.position, transform.position);
+        
+        if (distance < distanceNUMBER)
+        {
+            pinataAnim.Play("Pinata Scared");
+
+            exclamation.SetActive(true);
+            questionmark.SetActive(false);
+        }
+        else
+        {
+            pinataAnim.Play("PinataMovement");
+
+            exclamation.SetActive(false);
+            questionmark.SetActive(true);
+        }
+    }
 
     public void TakeDamage(int amount, Vector3 hitDirection) 
     {
-
        score.addscore();
-
         currentHealth -= amount;
-
-        if (pinata != null)
-        {
-            pinata.AddForce(hitDirection.normalized * knockbackforce, ForceMode.Impulse);
-        }
 
         if (currentHealth <= 0)
         {
@@ -52,7 +67,6 @@ public class Pinata : MonoBehaviour
             
             Invoke("Death", delay);
         }
-
     }
 
     void Confetti()
@@ -62,6 +76,8 @@ public class Pinata : MonoBehaviour
 
     void Death()
     {
+        Destroy(exclamation);
+        Destroy(questionmark);
         Destroy(gameObject);
     }
 }

@@ -1,45 +1,58 @@
 using UnityEngine;
 using TMPro;
 using StarterAssets;
+using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
-
-    UltimateFirstPersonController player;
-
     public TextMeshProUGUI scoredisplay;
 
-    public GameObject wintext;
+    public GameObject finishtext;
+
+    public AudioSource sourceaudio;
+
+    public UltimateFirstPersonController controller;
+
+    public AudioClip FINISH;
+
+    public TextMeshProUGUI timer;
+
+    public Animator fadeout;
 
     public int score;
 
     void Awake()
     {
 
-        wintext.SetActive(false);
+        finishtext.SetActive(false);
         score = 0;
-
-        scoredisplay.text = $"{score} / 5";
+        scoredisplay.text = $"Score: {score}";
     }
 
     public void addscore()
     {
             score += 1;
-
-            scoredisplay.text = $"{score} / 5";
+            scoredisplay.text = $"Score: {score}";
     }
 
     void Update()
     {
-        if (score >= 5)
+        timer.text = $"{Time.time:F2}";
+
+        if (timer.text == "60.00")
         {
+            fadeout.Play("FadeOut");
+            controller.attackDamage = 0;
+            finishtext.SetActive(true);
+            sourceaudio.PlayOneShot(FINISH);
 
-            wintext.SetActive(true);
-            player.MoveSpeed = 0f;
-            player.SprintSpeed = 0f;
-
+            Invoke("sceneswitcher", 4);
 
         }
-        
+    }
+
+    public void sceneswitcher()
+    {
+        SceneManager.LoadScene(0);
     }
 }

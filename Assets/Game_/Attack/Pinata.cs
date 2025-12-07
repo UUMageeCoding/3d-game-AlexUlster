@@ -38,6 +38,10 @@ public class Pinata : MonoBehaviour
 
     void Update()
     {
+        player = GameObject.FindWithTag("Player").transform;
+
+        score = GameObject.FindWithTag("Manager").GetComponent<ScoreManager>();
+
         float distance = Vector3.Distance(player.transform.position, transform.position);
         
         if (distance < distanceNUMBER)

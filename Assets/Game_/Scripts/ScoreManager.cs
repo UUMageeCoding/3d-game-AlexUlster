@@ -19,11 +19,17 @@ public class ScoreManager : MonoBehaviour
 
     public Animator fadeout;
 
+    public float time = 0f;
+
     public int score;
+
+    public int HIGHESTSCORE;
+
 
     void Awake()
     {
-
+        
+        HIGHESTSCORE = PlayerPrefs.GetInt("high score bruh", 0);
         finishtext.SetActive(false);
         score = 0;
         scoredisplay.text = $"Score: {score}";
@@ -37,7 +43,14 @@ public class ScoreManager : MonoBehaviour
 
     void Update()
     {
-        timer.text = $"{Time.time:F2}";
+        if (score > HIGHESTSCORE)
+{
+        PlayerPrefs.SetInt("high score bruh", score);
+        PlayerPrefs.Save();
+}
+        time += Time.deltaTime;
+
+        timer.text = $"{time:F2}";
 
         if (timer.text == "60.00")
         {

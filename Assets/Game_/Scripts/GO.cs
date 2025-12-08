@@ -16,6 +16,8 @@ public class GO : MonoBehaviour
 
     private void Awake()
     {
+        Cursor.visible = false;
+        
         controller = player.GetComponent<UltimateFirstPersonController>();
 
         controller.MoveSpeed = 0;

@@ -240,6 +240,7 @@ namespace StarterAssets
             if(audioSource && hitSound)
             {
                 audioSource.pitch = 1;
+                audioSource.volume = .5f;
                 audioSource.PlayOneShot(hitSound);
             }
 
